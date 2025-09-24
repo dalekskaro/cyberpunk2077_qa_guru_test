@@ -16,7 +16,7 @@ public class BaseTest {
   @BeforeAll
   static void setUpBrowser() {
     Configuration.baseUrl = "https://www.cyberpunk.net";
-    Configuration.browser = System.getProperty("browser");
+    Configuration.browser = System.getProperty("browser","chrome");
     Configuration.browserVersion = System.getProperty("browserVersion");
     Configuration.browserSize = System.getProperty("browserResolution", "1920x1080");
     Configuration.pageLoadStrategy = "eager";
