@@ -1,7 +1,7 @@
 # Демопроект по автоматизации тестирования сайта Cyberpunk 2077
 ## :page_with_curl: Содержание:
 - [Стек технологий](#dvd-стек-технологий)
-- [Реализованные проверки](#-mag-реализованные-проверки)
+- [Реализованные проверки](#mag-реализованные-проверки)
 - [Запуск автотестов](#crystal_ball-запуск-автотестов)
 - [Сборка Jenkins](#oncoming_automobile-сборка-jenkins)
 - [Отчет Allure](#bar_chart-отчет-allure)
@@ -69,29 +69,29 @@ ${TAG}
 ## :oncoming_automobile: Сборка Jenkins
 Ссылка: [037-attanosolas-cyberpunk2077](https://jenkins.autotests.cloud/job/037-attanosolas-cyberpunk2077/)
 <p align="center">
-<img width="50%" title="what" src="media/screenshot/jenkins.png">
+<img width="50%" title="jenkins" src="media/screenshot/jenkins.png">
 </p>
 
 ---
 ## :bar_chart: Отчет Allure
 Главная страница отчета
 <p align="center">
-<img width="50%" title="what" src="media/screenshot/allureRMain.png">
+<img width="50%" title="allureRMain" src="media/screenshot/allureRMain.png">
 </p>
 Пример теста в отчете
 <p align="center">
-<img width="50%" title="what" src="media/screenshot/allureRCase.png">
+<img width="50%" title="allureRCase" src="media/screenshot/allureRCase.png">
 </p>
 
 ---
 ## :bell: Уведомление в Telegram
 <p align="center">
-<img width="20%" title="what" src="media/screenshot/tg.png">
+<img width="20%" title="tg" src="media/screenshot/tg.png">
 </p>
 
 ---
 ## :movie_camera: Видео примера запуска тестов в Selenoid
 К каждому тесту в отчете прилагается видео прогона
 <p align="center">
-  <img width="50%" title="Selenoid Video" src="media/screenshot/cp2077.gif">
+<img width="50%" title="Video" src="media/screenshot/cp2077.gif">
 </p>
