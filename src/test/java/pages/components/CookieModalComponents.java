@@ -8,13 +8,7 @@ public class CookieModalComponents {
 
   private final SelenideElement
       acceptOnlyNecessaryButton = $("#CybotCookiebotDialogBodyButtonDecline"),
-      acceptOpinionButton = $("#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection"),
-      acceptAllButton = $("#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll"),
-      cookieModal = $("#CybotCookiebotDialog"),
-      agreementNavTab = $("#CybotCookiebotDialogNavDeclaration"),
-      detailsNavTab = $("#CybotCookiebotDialogNavDetails"),
-      aboutNavTab = $("#CybotCookiebotDialogNavAbout"),
-      dialogBodyContent = $("#CybotCookiebotDialogBodyContent");
+      cookieModal = $("#CybotCookiebotDialog");
 
   public void closeWithOnlyNecessaryCookie() {
     acceptOnlyNecessaryButton.click();
