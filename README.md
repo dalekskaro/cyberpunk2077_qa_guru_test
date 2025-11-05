@@ -33,16 +33,27 @@
 </p>
 
 ---
-## :crystal_ball: Запуск автотестов
+## :crystal_ball: Запуск автотестов (с учетом дз 17 Owner)
 Локальный запуск:
 ```bash
-./gradlew clean ${TAG}
+./gradlew clean ${TAG} -Denv=local
+```
+Пример (подойдет для ДЗ урока 17): 
+```bash
+./gradlew clean homework-17 -Denv=local
 ```
 Запуск на удаленном браузере:
 ```bash
+./gradlew clean ${TAG} -Denv=remote
+```
+Пример (подойдет для ДЗ урока 17):
+```bash
+./gradlew clean homework-17 -Denv=remote -DremoteUrl=${SELENOID_URL}
+```
+```bash
 ./gradlew clean
 ${TAG}
--Dremote=${SELENOID_URL}
+-DremoteUrl=${SELENOID_URL}
 -Dbrowser=${BROWSER}
 -DbrowserVersion=${BROWSER_VERSION}
 -DbrowserResolution=${BROWSER_RESOLUTION}

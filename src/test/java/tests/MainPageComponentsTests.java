@@ -21,7 +21,7 @@ public class MainPageComponentsTests extends BaseTest {
   String
       textOnHeader = "Полное погружение в Cyberpunk 2077";
 
-  @Tag("smoke")
+  @Tag("smoke") @Tag("homework-17")
   @Test
   @Severity(SeverityLevel.NORMAL)
   @Link(value = "Testing url", url = "https://www.cyberpunk.net/ru/ru/")

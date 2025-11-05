@@ -1,36 +1,19 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.SetUpWebDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
-import java.util.Map;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BaseTest {
 
   @BeforeAll
-  static void setUpBrowser() {
-    Configuration.baseUrl = "https://www.cyberpunk.net";
-    Configuration.browser = System.getProperty("browser","chrome");
-    Configuration.browserVersion = System.getProperty("browserVersion");
-    Configuration.browserSize = System.getProperty("browserResolution", "1920x1080");
-    Configuration.pageLoadStrategy = "eager";
-    Configuration.remote = System.getProperty("remote");
-  }
-
-  @BeforeAll
-  static void setVideo() {
-    DesiredCapabilities capabilities = new DesiredCapabilities();
-    capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-        "enableVNC", true,
-        "enableVideo", true
-    ));
-    Configuration.browserCapabilities = capabilities;
+  static void setWebDriver() {
+    SetUpWebDriver.setUpWebDriver();
   }
 
   @BeforeEach
