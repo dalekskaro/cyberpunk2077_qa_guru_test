@@ -24,10 +24,6 @@ public interface WebDriverConfig extends Config  {
   @DefaultValue("eager")
   String pageLoadStrategy();
 
-  @Key("isRemote")
-  @DefaultValue("true")
-  boolean isRemote();
-
   @Key("remoteUrl")
   String remoteUrl();
 
