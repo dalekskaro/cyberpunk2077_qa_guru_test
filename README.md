@@ -44,15 +44,7 @@
 ```
 Запуск на удаленном браузере:
 ```bash
-./gradlew clean ${TAG} -Denv=remote
-```
-```bash
-./gradlew clean
-${TAG}
--DremoteUrl=${SELENOID_URL}
--Dbrowser=${BROWSER}
--DbrowserVersion=${BROWSER_VERSION}
--DbrowserResolution=${BROWSER_RESOLUTION}
+./gradlew clean ${TAG} -Denv=remote -DremoteUrl=${SELENOID_URL} -Dbrowser=${BROWSER} -DbrowserVersion=${BROWSER_VERSION} -DbrowserResolution=${BROWSER_RESOLUTION}
 ```
 где параметры:
 - `${TAG}` - какой табор тестов будет запущен
