@@ -27,7 +27,8 @@ dependencies {
             'com.fasterxml.jackson.core:jackson-core:2.19.0',
             'com.fasterxml.jackson.core:jackson-databind:2.19.0',
             'io.qameta.allure:allure-selenide:2.29.1',
-            'org.assertj:assertj-core:3.27.3'
+            'org.assertj:assertj-core:3.27.3',
+            'org.aeonbits.owner:owner:1.0.12'
     )
     testImplementation('com.codeborne:xls-test:1.7.2') {
         exclude(group: 'org.apache.poi', module: 'poi')
@@ -69,16 +70,9 @@ allure {
     }
 }
 
-task smoke(type: Test) {
+tasks.register('smoke', Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform {
         includeTags("smoke")
-    }
-}
-
-task regress(type: Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform {
-        includeTags("regress")
     }
 }

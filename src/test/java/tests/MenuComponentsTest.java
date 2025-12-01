@@ -1,24 +1,24 @@
 package tests;
 
+import io.qameta.allure.Feature;
 import io.qameta.allure.Link;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
+import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import pages.MainCyberpunkPage;
 import pages.components.MenuPage;
 
-@Tag("regress")
-@Story("Компоненты на главной странице")
+@Story("Проверка компонентов")
+@Feature("Меню")
 @Owner("Irina Attano")
 public class MenuComponentsTest extends BaseTest {
 
-  MainCyberpunkPage mainCyberpunkPage = new MainCyberpunkPage();
   MenuPage menuPage = new MenuPage();
 
   @Severity(SeverityLevel.NORMAL)
@@ -37,10 +37,12 @@ public class MenuComponentsTest extends BaseTest {
   @Link(value = "Testing url", url = "https://www.cyberpunk.net/ru/ru/")
   @DisplayName("Проверка наполнения раздела ИГРЫ в меню")
   void checkMenuGamesContent() {
+    SoftAssertions softly = new SoftAssertions();
+
     mainCyberpunkPage.openRuPage()
         .closeCookieModal();
-    menuPage.checkMenuItemContent("ИГРЫ", "CYBERPUNK 2077")
-        .checkMenuItemContent("ИГРЫ", "ПРИЗРАЧНАЯ СВОБОДА");
+    menuPage.checkMenuItemContent(softly, "ИГРЫ", "CYBERPUNK 2077")
+        .checkMenuItemContent(softly, "ИГРЫ", "ПРИЗРАЧНАЯ СВОБОДА");
   }
 
   @Tag("smoke")
@@ -49,26 +51,32 @@ public class MenuComponentsTest extends BaseTest {
   @Link(value = "Testing url", url = "https://www.cyberpunk.net/ru/ru/")
   @DisplayName("Проверка наполнения раздела СЕРИАЛЫ в меню")
   void checkMenuShowsContent() {
+    SoftAssertions softly = new SoftAssertions();
+
     mainCyberpunkPage.openRuPage()
         .closeCookieModal();
-    menuPage.checkMenuItemContent("СЕРИАЛЫ", "EDGERUNNERS")
-        .checkMenuItemContent("СЕРИАЛЫ", "EDGERUNNERS");
+    menuPage.checkMenuItemContent(softly, "СЕРИАЛЫ", "EDGERUNNERS")
+        .checkMenuItemContent(softly, "СЕРИАЛЫ", "EDGERUNNERS");
   }
 
   @Tag("smoke")
+  @Tag("homework-17")
   @Test
   @Severity(SeverityLevel.CRITICAL)
   @Link(value = "Testing url", url = "https://www.cyberpunk.net/ru/ru/")
   @DisplayName("Проверка наполнения раздела СООБЩЕСТВО в меню")
   void checkMenuCommunityContent() {
+    SoftAssertions softly = new SoftAssertions();
+
     mainCyberpunkPage.openRuPage()
         .closeCookieModal();
-    menuPage.checkMenuItemContent("СООБЩЕСТВО", "ФОРУМ")
-        .checkMenuItemContent("СООБЩЕСТВО", "DISCORD")
-        .checkMenuItemContent("СООБЩЕСТВО", "TWITCH DROPS")
-        .checkMenuItemContent("СООБЩЕСТВО", "ПОЛЕЗНЫЕ МАТЕРИАЛЫ")
-        .checkMenuItemContent("СООБЩЕСТВО", "КАЛЬКУЛЯТОР СПОСОБНОСТЕЙ")
-        .checkMenuItemContent("СООБЩЕСТВО", "ИГРОВОЙ БУКЛЕТ");
+    menuPage.checkMenuItemContent(softly, "СООБЩЕСТВО", "ФОРУМ")
+        .checkMenuItemContent(softly, "СООБЩЕСТВО", "DISCORD")
+        .checkMenuItemContent(softly, "СООБЩЕСТВО", "ПОЛЕЗНЫЕ МАТЕРИАЛЫ")
+        .checkMenuItemContent(softly, "СООБЩЕСТВО", "КАЛЬКУЛЯТОР СПОСОБНОСТЕЙ")
+        .checkMenuItemContent(softly, "СООБЩЕСТВО", "ИГРОВОЙ БУКЛЕТ");
+
+    softly.assertAll();
   }
 
   @Tag("smoke")
@@ -77,16 +85,18 @@ public class MenuComponentsTest extends BaseTest {
   @Link(value = "Testing url", url = "https://www.cyberpunk.net/ru/ru/")
   @DisplayName("Проверка наполнения раздела ПРОЧЕЕ в меню")
   void checkMenuMoreContent() {
+    SoftAssertions softly = new SoftAssertions();
+
     mainCyberpunkPage.openRuPage()
         .closeCookieModal();
     ;
-    menuPage.checkMenuItemContent("ПРОЧЕЕ", "ИГРАЙТЕ НА NINTENDO SWITCH™ 2")
-        .checkMenuItemContent("ПРОЧЕЕ", "ПАТЧ 2.3")
-        .checkMenuItemContent("ПРОЧЕЕ", "МОИ НАГРАДЫ")
-        .checkMenuItemContent("ПРОЧЕЕ", "АТРИБУТИКА")
-        .checkMenuItemContent("ПРОЧЕЕ", "ГАЛЕРЕЯ")
-        .checkMenuItemContent("ПРОЧЕЕ", "ПОДДЕРЖКА")
-        .checkMenuItemContent("ПРОЧЕЕ", "CD PROJEKT RED");
+    menuPage.checkMenuItemContent(softly, "ПРОЧЕЕ", "ИГРАЙТЕ НА NINTENDO SWITCH™ 2")
+        .checkMenuItemContent(softly, "ПРОЧЕЕ", "ПАТЧ 2.3")
+        .checkMenuItemContent(softly, "ПРОЧЕЕ", "МОИ НАГРАДЫ")
+        .checkMenuItemContent(softly, "ПРОЧЕЕ", "АТРИБУТИКА")
+        .checkMenuItemContent(softly, "ПРОЧЕЕ", "ГАЛЕРЕЯ")
+        .checkMenuItemContent(softly, "ПРОЧЕЕ", "ПОДДЕРЖКА")
+        .checkMenuItemContent(softly, "ПРОЧЕЕ", "CD PROJEKT RED");
   }
 
   @Tag("smoke")
@@ -95,20 +105,22 @@ public class MenuComponentsTest extends BaseTest {
   @Link(value = "Testing url", url = "https://www.cyberpunk.net/ru/ru/")
   @DisplayName("Проверка наполнения раздела RU в меню")
   void checkMenuLanguageContent() {
+    SoftAssertions softly = new SoftAssertions();
+
     mainCyberpunkPage.openRuPage()
         .closeCookieModal();
-    menuPage.checkMenuItemContent("RU", "ENGLISH")
-        .checkMenuItemContent("RU", "РУССКИЙ")
-        .checkMenuItemContent("RU", "DEUTSCH")
-        .checkMenuItemContent("RU", "POLSKI")
-        .checkMenuItemContent("RU", "PORTUGUÊS (BR)")
-        .checkMenuItemContent("RU", "FRANÇAIS")
-        .checkMenuItemContent("RU", "ESPAÑOL")
-        .checkMenuItemContent("RU", "ITALIANO")
-        .checkMenuItemContent("RU", "日本語")
-        .checkMenuItemContent("RU", "한국어")
-        .checkMenuItemContent("RU", "简体中文")
-        .checkMenuItemContent("RU", "繁體中文");
+    menuPage.checkMenuItemContent(softly, "RU", "ENGLISH")
+        .checkMenuItemContent(softly, "RU", "РУССКИЙ")
+        .checkMenuItemContent(softly, "RU", "DEUTSCH")
+        .checkMenuItemContent(softly, "RU", "POLSKI")
+        .checkMenuItemContent(softly, "RU", "PORTUGUÊS (BR)")
+        .checkMenuItemContent(softly, "RU", "FRANÇAIS")
+        .checkMenuItemContent(softly, "RU", "ESPAÑOL")
+        .checkMenuItemContent(softly, "RU", "ITALIANO")
+        .checkMenuItemContent(softly, "RU", "日本語")
+        .checkMenuItemContent(softly, "RU", "한국어")
+        .checkMenuItemContent(softly, "RU", "简体中文")
+        .checkMenuItemContent(softly, "RU", "繁體中文");
   }
 
 }

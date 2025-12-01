@@ -3,28 +3,33 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.WebDriverConfig;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import java.util.Map;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import pages.MainCyberpunkPage;
 
 public class BaseTest {
+  MainCyberpunkPage mainCyberpunkPage = new MainCyberpunkPage();
+
+  private static final WebDriverConfig config = ConfigFactory.create(
+      WebDriverConfig.class,
+      System.getProperties()
+  );
 
   @BeforeAll
-  static void setUpBrowser() {
-    Configuration.baseUrl = "https://www.cyberpunk.net";
-    Configuration.browser = System.getProperty("browser","chrome");
-    Configuration.browserVersion = System.getProperty("browserVersion");
-    Configuration.browserSize = System.getProperty("browserResolution", "1920x1080");
-    Configuration.pageLoadStrategy = "eager";
-    Configuration.remote = System.getProperty("remote");
-  }
-
-  @BeforeAll
-  static void setVideo() {
+  static void setWebDriver() {
+    Configuration.baseUrl = config.baseUrl();
+    Configuration.browser = config.browser();
+    Configuration.browserVersion = config.browserVersion();
+    Configuration.browserSize = config.browserResolution();
+    Configuration.pageLoadStrategy = config.pageLoadStrategy();
+    Configuration.remote = config.remoteUrl();
     DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setCapability("selenoid:options", Map.<String, Object>of(
         "enableVNC", true,
@@ -39,17 +44,13 @@ public class BaseTest {
   }
 
   @AfterEach
-  void closeBrowserDriver() {
-    closeWebDriver();
-  }
-
-  @AfterEach
-  void addAttachments() {
+  void shutdown() {
     Attach.screenshotAs("Скрин страницы");
     Attach.addVideo("Видео всего теста");
     Attach.pageSnapshot("Снапшот страницы");
     Attach.pageSource("Source страницы");
     Attach.browserConsoleLogs("Логи браузера");
-  }
 
+    closeWebDriver();
+  }
 }
