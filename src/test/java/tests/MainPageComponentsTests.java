@@ -18,14 +18,14 @@ import pages.MainCyberpunkPage;
 @Owner("Irina Attano")
 public class MainPageComponentsTests extends BaseTest {
 
-  String textOnHeader = "Полное погружение в Cyberpunk 2077";
-
   @Tag("smoke")
   @Test
   @Severity(SeverityLevel.NORMAL)
   @Link(value = "Testing url", url = "https://www.cyberpunk.net/ru/ru/")
-  @DisplayName("На шапке сайта есть текст: {textOnHeader}")
+  @DisplayName("На шапке сайта есть текст: Полное погружение в Cyberpunk 2077")
   void textOnHeaderTest() {
+    String textOnHeader = "Полное погружение в Cyberpunk 2077";
+
     mainCyberpunkPage.openRuPage()
         .closeCookieModal()
         .checkTextOnHeader(textOnHeader);

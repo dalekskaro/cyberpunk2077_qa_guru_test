@@ -13,7 +13,7 @@ public class MenuPage {
     return this;
   }
 
-  @Step("Проверяем наполнение раздела {item} в меню")
+  @Step("Проверяем наполнение раздела {item} в меню - в выпадающем списке есть выбор {content}")
   public MenuPage checkMenuItemContent(SoftAssertions softly, String item, String content) {
     menu.checkContentItemInMenu(softly, item, content);
     return this;
