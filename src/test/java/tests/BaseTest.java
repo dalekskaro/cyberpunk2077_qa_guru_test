@@ -12,8 +12,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import pages.MainCyberpunkPage;
 
 public class BaseTest {
+  MainCyberpunkPage mainCyberpunkPage = new MainCyberpunkPage();
+
   private static final WebDriverConfig config = ConfigFactory.create(
       WebDriverConfig.class,
       System.getProperties()
@@ -41,16 +44,13 @@ public class BaseTest {
   }
 
   @AfterEach
-  void closeBrowserDriver() {
-    closeWebDriver();
-  }
-
-  @AfterEach
-  void addAttachments() {
+  void shutdown() {
     Attach.screenshotAs("Скрин страницы");
     Attach.addVideo("Видео всего теста");
     Attach.pageSnapshot("Снапшот страницы");
     Attach.pageSource("Source страницы");
     Attach.browserConsoleLogs("Логи браузера");
+
+    closeWebDriver();
   }
 }

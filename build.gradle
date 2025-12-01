@@ -70,23 +70,9 @@ allure {
     }
 }
 
-task smoke(type: Test) {
+tasks.register('smoke', Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform {
         includeTags("smoke")
-    }
-}
-
-task regress(type: Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform {
-        includeTags("regress")
-    }
-}
-
-tasks.register('homework-17', Test) {
-    systemProperties(System.getProperties())
-    useJUnitPlatform {
-        includeTags("homework-17")
     }
 }

@@ -3,6 +3,7 @@ package pages.components;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import static com.codeborne.selenide.Selenide.$$;
+import com.codeborne.selenide.SelenideElement;
 import org.assertj.core.api.SoftAssertions;
 
 public class MenuComponents {
@@ -18,9 +19,17 @@ public class MenuComponents {
 
   public void checkContentItemInMenu(SoftAssertions softly, String item, String content) {
     menuSub.findBy(Condition.exactText(item)).click();
-    softly.assertThat(menuSubList.findBy(Condition.text(content)).text())
-        .as("Раздел {item} содержит раздел {content}")
-        .isEqualTo(content);
-  }
 
+    SelenideElement contentItem = menuSubList.find(Condition.text(content));
+
+    softly.assertThat(contentItem.exists())
+        .as("Элемент '%s' существует в разделе '%s'", content, item)
+        .isTrue();
+
+    if (contentItem.exists()) {
+      softly.assertThat(contentItem.text())
+          .as("Текст элемента '%s' в разделе '%s'", content, item)
+          .isEqualTo(content);
+    }
+  }
 }

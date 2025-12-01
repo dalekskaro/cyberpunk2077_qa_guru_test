@@ -6,6 +6,8 @@
 - [Сборка Jenkins](#oncoming_automobile-сборка-jenkins)
 - [Отчет Allure](#bar_chart-отчет-allure)
 - [Уведомление в Telegram](#bell-уведомление-в-telegram)
+- [Запуск в ТестОпс](#blue_book-запуск-в-тестопс)
+- [Задача в Jira](#information_source-задача-в-jira)
 - [Видео примера запуска тестов в Selenoid](#movie_camera-видео-примера-запуска-тестов-в-selenoid)
 ---
 ## :dvd: Стек технологий
@@ -20,6 +22,8 @@
 <a href="https://aerokube.com/selenoid/"><img width="6%" title="Selenoid" src="media/logo/Selenoid.svg">
 <a href="https://allurereport.org/"><img width="6%" title="Allure Report" src="media/logo/Allure_Report.svg">
 <a href="https://web.telegram.org/"><img width="6%" title="Telegram" src="media/logo/Telegram.svg">
+<a href="https://qameta.io"><img width="6%" title="TestOps" src="media/logo/TespOps.ico">
+<a href="https://www.atlassian.com/software/jira"><img width="6%" title="jira" src="media/logo/Jira.svg">
 </p>
 
 ---
@@ -38,17 +42,9 @@
 ```bash
 ./gradlew clean ${TAG} -Denv=local
 ```
-Пример (подойдет для ДЗ урока 17): 
-```bash
-./gradlew clean homework-17 -Denv=local
-```
 Запуск на удаленном браузере:
 ```bash
 ./gradlew clean ${TAG} -Denv=remote
-```
-Пример (подойдет для ДЗ урока 17):
-```bash
-./gradlew clean homework-17 -Denv=remote -DremoteUrl=${SELENOID_URL}
 ```
 ```bash
 ./gradlew clean
@@ -61,7 +57,6 @@ ${TAG}
 где параметры:
 - `${TAG}` - какой табор тестов будет запущен
   - test - все тесты проекта
-  - regress - все тесты проекта
   - smoke - самые критичные кейсы
 - `${SELENOID_URL}` - урл селенойда
 - `${BROWSER}` и `${BROWSER_VERSION}` - на каком браузере и какой версии запускать
@@ -85,7 +80,7 @@ ${TAG}
 
 ---
 ## :bar_chart: Отчет Allure
-Ссылка: [https://jenkins.autotests.cloud/job/037-attanosolas-cyberpunk2077/1/allure/](https://jenkins.autotests.cloud/job/037-attanosolas-cyberpunk2077/1/allure/)  
+Ссылка: [037-attanosolas-cyberpunk2077/allure/](https://jenkins.autotests.cloud/job/037-attanosolas-cyberpunk2077/1/allure/)  
 Главная страница отчета
 <p align="center">
 <img width="50%" title="allureRMain" src="media/screenshot/allureRMain.png">
@@ -99,6 +94,20 @@ ${TAG}
 ## :bell: Уведомление в Telegram
 <p align="center">
 <img width="20%" title="tg" src="media/screenshot/tg.png">
+</p>
+
+---
+## :blue_book: Запуск в ТестОпс
+Ссылка: [037-attanosolas-cyberpunk2077](https://allure.autotests.cloud/project/5026/test-cases?treeId=0)
+<p align="center">
+<img width="50%" title="testops" src="media/screenshot/testops.png">
+</p>
+
+---
+## :information_source: Задача в Jira
+Ссылка: [jira](https://jira)
+<p align="center">
+<img width="50%" title="jira" src="media/screenshot/jira.png">
 </p>
 
 ---

@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Feature;
 import io.qameta.allure.Link;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
@@ -12,16 +13,14 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import pages.MainCyberpunkPage;
 
-@Tag("regress")
-@Story("Компоненты на главной странице")
+@Story("Проверка компонентов")
+@Feature("Главная страница")
 @Owner("Irina Attano")
 public class MainPageComponentsTests extends BaseTest {
 
-  MainCyberpunkPage mainCyberpunkPage = new MainCyberpunkPage();
-  String
-      textOnHeader = "Полное погружение в Cyberpunk 2077";
+  String textOnHeader = "Полное погружение в Cyberpunk 2077";
 
-  @Tag("smoke") @Tag("homework-17")
+  @Tag("smoke")
   @Test
   @Severity(SeverityLevel.NORMAL)
   @Link(value = "Testing url", url = "https://www.cyberpunk.net/ru/ru/")

@@ -14,10 +14,8 @@ public class MenuPage {
   }
 
   @Step("Проверяем наполнение раздела {item} в меню")
-  public MenuPage checkMenuItemContent(String item, String content) {
-    SoftAssertions softly = new SoftAssertions();
+  public MenuPage checkMenuItemContent(SoftAssertions softly, String item, String content) {
     menu.checkContentItemInMenu(softly, item, content);
-    softly.assertAll();
     return this;
   }
 
