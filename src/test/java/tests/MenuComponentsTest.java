@@ -60,7 +60,6 @@ public class MenuComponentsTest extends BaseTest {
   }
 
   @Tag("smoke")
-  @Tag("homework-17")
   @Test
   @Severity(SeverityLevel.CRITICAL)
   @Link(value = "Testing url", url = "https://www.cyberpunk.net/ru/ru/")
