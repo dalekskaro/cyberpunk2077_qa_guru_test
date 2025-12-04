@@ -24,7 +24,6 @@
 <a href="https://selenide.org/"><img width="6%" title="Selenide" src="media/logo/Selenide.svg">
 <a href="https://www.jenkins.io/"><<img width="6%" title="Jenkins" src="media/logo/Jenkins.svg">
 <a href="https://aerokube.com/selenoid/"><img width="6%" title="Selenoid" src="media/logo/Selenoid.svg">
-  <a href="https://aerokube.com/selenoid/latest/"><img width="6%" title="Selenide" src="media/logo/Selenoid.svg">
 <a href="https://allurereport.org/"><img width="6%" title="Allure Report" src="media/logo/Allure_Report.svg">
 <a href="https://web.telegram.org/"><img width="6%" title="Telegram" src="media/logo/Telegram.svg">
 <a href="https://qameta.io"><img width="6%" title="TestOps" src="media/logo/TespOps.ico">
